@@ -25,6 +25,19 @@ select
 	concat( cast(menu_price as char(5)), '원')
 from
 	tbl_menu;
-    
+
+-- 암시적 형변환 (Implicit Conversion)
+-- 따로 처리하지 않아도 내부적으로 자동으로 형변환이 이루어진다.
+
+select '1' + '2';  	-- 각 문자가 정수로 변환됨.
+select concat(menu_price, '원') from tbl_menu;	-- menu_price가 내부적으로 문자로 변환됨.
+
+select 3 > 'May';		-- 문자는 0으로 변환됨 (대소비교)
+
+select 5 > '6May'; 		-- 문자에서 첫번째로 나온 숫자는 정수로 전환된다. / false로 나옴..??
+select 5 > 'M6ay';		-- 숫자가 뒤에 나오면 문자로 인식되어 0으로 변환된다.
+select '2023-5-30';		-- 날짜 형으로 바뀔 수 있는 문자들은 DATE 형으로 변환된다.
+
+  
     
     
